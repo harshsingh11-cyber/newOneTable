@@ -9,9 +9,9 @@ function Table2() {
   return (
     <div className="main">
       {/* =================================================== */}
-      <div className="heading_time">
+      {/* <div className="heading_time">
         <Header />
-      </div>
+      </div> */}
       {/* =================================================== */}
       <div className="heading_main">
         <h3>
