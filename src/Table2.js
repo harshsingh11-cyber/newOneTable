@@ -23,6 +23,7 @@ function Table2() {
       {/* ==================================================== */}
       <div class="table-container">
         <table>
+          <thead className="theading">
           <tr>
             <th className="heading">AnalystCode</th>
             <th className="heading">ExpDt</th>
@@ -58,6 +59,8 @@ function Table2() {
             <th className="heading">Mrgn</th>
           </tr>
 
+          </thead>
+        
           {data.map((elm, id) => {
             let className3 = elm["LExp"] >= 0 ? "green" : "red";
             let className4 = elm["SExp"] >= 0 ? "green" : "red";
