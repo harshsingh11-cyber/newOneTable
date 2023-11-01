@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { dataJson } from "./data.js";
 import "./Table2.css";
-import Header from "./Header.js";
+import axios from "axios";
 
 function Table2() {
   const [data, setData] = useState([...dataJson]);
 
+  // let baseUrl = "http://localhost:8000/";
+  // async function fetchData() {
+  //   try {
+  //     const response = await axios.get(`${baseUrl}`);
+  //     console.log(response);
+  //     setData(response.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     fetchData();
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, []);
+
   return (
     <div className="main">
-      {/* =================================================== */}
-      {/* <div className="heading_time">
-        <Header />
-      </div> */}
       {/* =================================================== */}
       <div className="heading_main">
         <h3>
@@ -24,43 +38,42 @@ function Table2() {
       <div class="table-container">
         <table>
           <thead className="theading">
-          <tr>
-            <th className="heading">AnalystCode</th>
-            <th className="heading">ExpDt</th>
-            <th className="heading">LExp</th>
-            <th className="heading">SExp</th>
-            <th className="heading">NExp</th>
+            <tr>
+              <th className="heading">AnalystCode</th>
+              <th className="heading">ExpDt</th>
+              <th className="heading">LExp</th>
+              <th className="heading">SExp</th>
+              <th className="heading">NExp</th>
 
-            <th className="heading">CumPL</th>
-            <th className="heading">DayPL</th>
+              <th className="heading">CumPL</th>
+              <th className="heading">DayPL</th>
 
-            <th className="heading">-0.25%</th>
-            <th className="heading">-0.50%</th>
-            <th className="heading">-0.75%</th>
-            <th className="heading">-1%</th>
-            <th className="heading">-2%</th>
-            <th className="heading">-5%</th>
-            <th className="heading">-10%</th>
-            <th className="heading">-20%</th>
+              <th className="heading">-0.25%</th>
+              <th className="heading">-0.50%</th>
+              <th className="heading">-0.75%</th>
+              <th className="heading">-1%</th>
+              <th className="heading">-2%</th>
+              <th className="heading">-5%</th>
+              <th className="heading">-10%</th>
+              <th className="heading">-20%</th>
 
-            <th className="heading">+0.25%</th>
-            <th className="heading">+0.50%</th>
-            <th className="heading">+0.75%</th>
-            <th className="heading">+1%</th>
-            <th className="heading">+2%</th>
-            <th className="heading">+5%</th>
-            <th className="heading">+10%</th>
-            <th className="heading">+20%</th>
+              <th className="heading">+0.25%</th>
+              <th className="heading">+0.50%</th>
+              <th className="heading">+0.75%</th>
+              <th className="heading">+1%</th>
+              <th className="heading">+2%</th>
+              <th className="heading">+5%</th>
+              <th className="heading">+10%</th>
+              <th className="heading">+20%</th>
 
-            <th className="heading">Delta</th>
-            <th className="heading">Vega</th>
-            <th className="heading">Theta</th>
-            <th className="heading">Gamma</th>
-            <th className="heading">Mrgn</th>
-          </tr>
-
+              <th className="heading">Delta</th>
+              <th className="heading">Vega</th>
+              <th className="heading">Theta</th>
+              <th className="heading">Gamma</th>
+              <th className="heading">Mrgn</th>
+            </tr>
           </thead>
-        
+
           {data.map((elm, id) => {
             let className3 = elm["LExp"] >= 0 ? "green" : "red";
             let className4 = elm["SExp"] >= 0 ? "green" : "red";
@@ -286,14 +299,13 @@ function Table2() {
                 </td>
                 <hr
                   style={{
-                    position:"relative",
-                    top : "17px",
+                    position: "relative",
+                    top: "17px",
                     background: "lime",
                     color: "lime",
                     borderColor: "lime",
                     height: "3px",
-                    color:"white",
-                  
+                    color: "white",
                   }}
                 />
               </tr>
